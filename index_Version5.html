@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BNPBD Login Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-logo">
+            <img src="https://www.bnpbd.org/images/logo.png" alt="BNPBD Logo">
+        </div>
+        <h2>Login</h2>
+        <form class="login-form" autocomplete="off" id="loginForm">
+            <div id="errorMsg" class="error-message" style="display:none;"></div>
+            <div class="input-group">
+                <label for="username">Username or Email</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+        <div class="login-links">
+            <a href="#">Forgot your password?</a>
+        </div>
+    </div>
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const user = document.getElementById('username').value.trim();
+        const pass = document.getElementById('password').value.trim();
+        const errorMsg = document.getElementById('errorMsg');
+
+        // Demo credentials: admin / password
+        if (user === "admin" && pass === "password") {
+            errorMsg.style.display = "none";
+            alert("Login successful! (Demo only)");
+            // window.location.href = "dashboard.html"; // redirect if needed
+        } else {
+            errorMsg.textContent = "Invalid username or password.";
+            errorMsg.style.display = "block";
+        }
+    });
+    </script>
+</body>
+</html>
